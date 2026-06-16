@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelX</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    z-index:1000;
+    transition:.4s;
+}
+
+.navbar.scrolled{
+    background:rgba(0,0,0,.6);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:2rem;
+    color:#00e5ff;
+}
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#00e5ff;
+}
+
+.hero{
+    height:100vh;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    center/cover no-repeat;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.5);
+}
+
+.content{
+    position:relative;
+    text-align:center;
+    z-index:2;
+}
+
+.content h1{
+    font-size:5rem;
+    margin-bottom:15px;
+}
+
+.content p{
+    font-size:1.2rem;
+    margin-bottom:25px;
+}
+
+.search-box{
+    display:flex;
+    justify-content:center;
+}
+
+.search-box input{
+    width:320px;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:10px 0 0 10px;
+}
+
+.search-box button{
+    padding:15px 25px;
+    border:none;
+    background:#00e5ff;
+    cursor:pointer;
+    border-radius:0 10px 10px 0;
+    font-weight:bold;
+}
+
+.destinations{
+    padding:100px 8%;
+}
+
+.destinations h2{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    height:300px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.4s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #00e5ff;
+}
+
+.card h3{
+    font-size:2rem;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2 class="logo">TravelX</h2>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Tours</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="content">
+
+        <h1>Explore The World</h1>
+
+        <p>
+            Discover beautiful destinations and create unforgettable memories.
+        </p>
+
+        <div class="search-box">
+
+            <input type="text"
+            placeholder="Search destination...">
+
+            <button>Search</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="destinations">
+
+    <h2>Popular Destinations</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Paris</h3>
+        </div>
+
+        <div class="card">
+            <h3>Dubai</h3>
+        </div>
+
+        <div class="card">
+            <h3>Bali</h3>
+        </div>
+
+        <div class="card">
+            <h3>Tokyo</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<script src="script.js">
+    const navbar =
+document.querySelector(".navbar");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+    }
+    else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+const cards =
+document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform =
+        "translateY(-10px) scale(1.05)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform =
+        "translateY(0) scale(1)";
+
+    });
+
+});
+</script>
+
+</body>
+</html>
