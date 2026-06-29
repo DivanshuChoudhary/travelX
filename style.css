@@ -1,0 +1,144 @@
+ *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    z-index:1000;
+    transition:.4s;
+}
+
+.navbar.scrolled{
+    background:rgba(0,0,0,.6);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:2rem;
+    color:#00e5ff;
+}
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#00e5ff;
+}
+
+.hero{
+    height:100vh;
+    background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    center/cover no-repeat;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.5);
+}
+
+.content{
+    position:relative;
+    text-align:center;
+    z-index:2;
+}
+
+.content h1{
+    font-size:5rem;
+    margin-bottom:15px;
+}
+
+.content p{
+    font-size:1.2rem;
+    margin-bottom:25px;
+}
+
+.search-box{
+    display:flex;
+    justify-content:center;
+}
+
+.search-box input{
+    width:320px;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:10px 0 0 10px;
+}
+
+.search-box button{
+    padding:15px 25px;
+    border:none;
+    background:#00e5ff;
+    cursor:pointer;
+    border-radius:0 10px 10px 0;
+    font-weight:bold;
+}
+
+.destinations{
+    padding:100px 8%;
+}
+
+.destinations h2{
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    height:300px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.4s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #00e5ff;
+}
+
+.card h3{
+    font-size:2rem;
+}
